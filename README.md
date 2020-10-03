@@ -15,3 +15,29 @@ npm run unit
 
 # run all tests
 npm test
+
+# component creation procedure
+*   Go to folder src/components
+*   Right click and choose New > Vue component
+*   Enter the component name with the nomenclature ...
+*   Tap 'Enter' key
+
+# view creation procedure
+*   Go to folder src/views
+*   Right click and choose New > Vue component
+*   Enter the component name with the nomenclature ...
+*   Tap 'Enter' key
+
+# add a route to your route
+*   Go to file src/router/index.js
+*   Double click on it 
+*   import your component
+*   add a new object in the array
+    {
+        path: '/route_name',
+        name: 'Route_name',
+        component: Compononent_name
+    },
+    
+# call your component in your view
+# run the project
