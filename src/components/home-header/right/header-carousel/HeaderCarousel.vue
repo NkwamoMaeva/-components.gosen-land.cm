@@ -6,6 +6,7 @@
         class="header-carousel-navigation-button active header-carousel-navigation-left"
         height="60"
         width="60"
+        @click="prev"
       >
         <v-icon
           size="66"
@@ -19,6 +20,7 @@
         class="header-carousel-navigation-button header-carousel-navigation-right"
         height="60"
         width="60"
+        @click="next"
       >
         <v-icon
           size="66"
@@ -33,6 +35,7 @@
         v-for="(v, k) in slides"
         :key="k"
         class="header-carousel-slides-item"
+        :index="k"
         :slide="v"
       />
     </div>
@@ -48,6 +51,23 @@ export default {
     slides: {
       type: Array,
       required: true
+    }
+  },
+  data: () => ({
+    index: 0
+  }),
+  methods: {
+    next () {
+      this.index++
+      if (this.index >= this.slides.length) {
+        this.index = 0
+      }
+    },
+    prev () {
+      this.index--
+      if (this.index < 0) {
+        this.index = this.slides.length - 1
+      }
     }
   }
 }
@@ -75,7 +95,7 @@ export default {
     .header-carousel-slides{
       display: flex;
       flex-wrap: nowrap;
-      overflow: hidden;
+      width: auto;
     }
   }
 </style>
